@@ -10,4 +10,4 @@ app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, console.log('app is listenning on PORT:', PORT));
+app.listen(PORT, console.log('app is listening on PORT:', PORT));
