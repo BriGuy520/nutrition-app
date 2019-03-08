@@ -6,7 +6,11 @@ import nutrition from '../api/nutrition';
 
 class App extends Component {
 
-  state = { ndbno: null, selectedFood: null };
+  state = { foods: [] };
+
+  componentDidMount(){
+    this.onTermSubmit('');
+  }
 
   onTermSubmit = async (term) => {
     const response = await nutrition.get("/search", {
@@ -15,22 +19,23 @@ class App extends Component {
       }
     });
 
-    this.setState({ ndbno: response.data.item[0].nbdno })
+    this.setState({ foods: response.data.list.item })
   }
 
 
-  render() {
+  render(){
+
     return (
       <div>
         <FoodSearch onFormSubmit={this.onTermSubmit} />
+        <div className="row">
+          <FoodList foods={this.state.foods} />
+        </div>
         <div className="grid">
           <div className="row">
             <div className="column">
               <FoodProfile />
             </div>
-          </div>
-          <div className="row">
-            <FoodList />
           </div>
         </div>
       </div>

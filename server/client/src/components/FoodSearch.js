@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import FoodList from './FoodList';
+
 
 class FoodSearch extends Component {
   
-  state = { name: "pineapple" };
+  state = { name: "" };
 
   handleInputChange = (e) => {
     this.setState({ name: e.target.value })
@@ -29,9 +29,6 @@ class FoodSearch extends Component {
               onChange={this.handleInputChange}
             />
           </form>
-        </div>
-        <div>
-          <FoodList />
         </div>
       </div>
     );

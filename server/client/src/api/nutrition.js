@@ -7,7 +7,7 @@ export default axios.create({
   baseURL: "https://api.nal.usda.gov/ndb",
     params: {
     format: "json",
-    max: 25,
+    max: 10,
     api_key: API_KEY
   }
 });

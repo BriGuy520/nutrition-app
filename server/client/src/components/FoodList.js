@@ -2,10 +2,15 @@ import React from 'react';
 import FoodItem from './FoodItem';
 
 
-const FoodList = () => {
+const FoodList = ({ foods }) => {
+
+  const foodList = foods.map(food => {
+    return <FoodItem key={food.ndbno} food={food} />
+  });
+
   return (
-    <div>
-      <FoodItem />
+    <div className="collection">
+      {foodList}
     </div>
   );
 }
